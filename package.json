@@ -1,0 +1,20 @@
+{
+  "name": "yogAitest",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mediapipe/pose": "^0.4.1630009814",
+    "@tensorflow-models/pose-detection": "0.0.6",
+    "@tensorflow/tfjs": "^3.9.0",
+    "express": "^4.17.1",
+    "webpack": "^5.56.1",
+    "webpack-cli": "^4.8.0"
+  }
+}

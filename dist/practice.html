@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #ffffff;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>yogAi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akaya+Kanadaka&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-Dual-Column.css">
+    <link rel="stylesheet" href="assets/css/dh-row-text-image-right.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Clean.css">
+    <link rel="stylesheet" href="assets/css/Team-Grid.css">
+<style>
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(12, 11, 11);
+  border-color: rgb(15, 15, 15) transparent rgb(0, 0, 0) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    </style>
+</head>
+
+<body style="background: linear-gradient(45deg, rgba(153,244,4,0.2), rgba(5,217,231,0.2)), transparent;">
+
+<div id = "loading" class = "lds-dual-ring"></div>
+<div id = "loaded" style = "display: none;">
+    <div class="container" style="background: rgba(255,255,255,0);">
+        <div class="row" style="background: rgba(255,255,255,0);">
+            <div class="col-md-12" style="background: rgba(255,255,255,0);margin-bottom: 50px;">
+                <h1 class="text-center"
+                    style="font-size: 50px;color: rgb(180,242,4);margin-bottom: 1%;margin-top: 2%;font-family: Amita, serif;">
+                    <img class="img-fluid flex-wrap" src="assets/img/logo1.png" width="10%" height="10%"
+                        alt="Logo could not load" style="background: rgba(255,255,255,0);"><a
+                        style="font-size: 50px;color: var(--bs-info);margin-bottom: 1%;margin-top: 2%;font-family: Amita, serif;font-weight: bold;font-style: italic;"
+                        href="index.html">YogAI</a></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto col-md-4 align-self-start">
+                <div class="row">
+                    <div class="col">
+
+                        <select id = "pose_select" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option selected>Select poses to practice</option>
+                            <option value="1">downdog</option>
+                            <option value="2">goddess</option>
+                            <option value="3">plank</option>
+                            <option value = "4">tree</option>
+                            <option value = "5">warrior2</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                        <div id = "help_text_main" class="alert alert-success" role="alert">
+                            <h4 id = "help_text_head" class="alert-heading">Please Select Pose!</h4>
+                            <p id = "help_text_content">Please select some pose from dropdown to start</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <button id = "start_button" type="button" class="btn btn-info btn-lg" style = "display: none;">Start Practicing</button>
+                        <button id = "stop_button" type="button" class="btn btn-info btn-lg" style = "display: none;">stop</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto col-md-8" style = "min-height: 480px; min-width: 640px;">
+                <div id = "liveView" style = "width: 640px; height: 480px; position: relative; display: none;">
+                    <video id = "video_element"  style = "height: inherit ; width: inherit;visibility: hidden;position: absolute;"></video>
+                    <canvas id = "my_canvas" style =" height: inherit; width:inherit;position: absolute; visibility: hidden; "></canvas>
+                </div>
+                <img id = "help_img" src = "assets/img/yoga_logo.png" width="100%" height="100%" alt = "yoga poses help">
+            </div>
+        </div>
+        <footer class="footer-basic" style="background: rgba(255,255,255,0);position: relative;">
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                        class="icon ion-social-twitter"></i></a></div>
+            <ul class="list-inline d-flex justify-content-center align-items-center">
+                <li class="list-inline-item"><a href="index.html">Home</a></li>
+                <li class="list-inline-item"><a href="about.html">About</a></li>
+            </ul>
+            <p class="copyright">yogAI © 2021</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src = "main.js"></script>
+
+    <script type = "text/javascript">
+
+        // let pose_select = document.getElementById('pose_select')
+        // let help_text_head = document.getElementById('help_text_head')
+        // let help_text_content = document.getElementById('help_text_content')
+        // let help_img = document.getElementById('help_img')
+        // let start_button = document.getElementById('start_button')
+        // let stop_button = document.getElementById('stop_button')
+        // let my_canvas = document.getElementById('my_canvas')
+        // let my_posedict = {
+        //     0: {
+        //          'head' : 'downdog',
+        //          'content' : "One of yoga's most widely recognized poses, Downward-Facing Dog Pose, called Adho Mukha Svanasana in Sanskrit, works to strengthen the core and improve circulation. This rejuvenating pose works to provide a delicious, full-body stretch.",
+        //          'img_path' : "assets/img/downward_dog.gif" 
+        //         },
+        //     1:{
+        //          'head' : 'goddess',
+        //          'content' : "Utkata Konasana (Goddess Pose), also referred to as the Fierce Angle Pose, is an empowering, intermediate standing level pose. The Goddess Pose (Utkata Konasana) can also be part of yoga sequences intended for hips, the chest",
+        //          'img_path' : "https://64.media.tumblr.com/72dff3ef8380328ac9bf3effac9eb55d/tumblr_o3j8h2su5B1rysr6eo1_400.gifv" 
+        //         },
+        //     2:{
+        //          'head' : 'plank',
+        //          'content' : "Nurture your love-hate relationship with Plank Pose. A beginner's best friend, it's the perfect precursor to more challenging arm balances.",
+        //          'img_path' : "https://media2.giphy.com/media/2UqZvQq4p9DjTBDVRc/giphy.gif" 
+        //         },
+        //     3:{
+        //          'head' : 'tree',
+        //          'content' : "Tree Pose, called Vrksasana in Sanskrit, establishes strength and balance in the legs, and helps you feel centered, steady, and grounded.",
+        //          'img_path' : "https://www.sheknows.com/wp-content/uploads/2018/08/gijnkznlgwzt0bcb1bgp.gif" 
+        //         },
+        //     4:{
+        //          'head' : 'warrior II',
+        //          'content' : "Named for a fierce warrior, an incarnation of Shiva, this version of Warrior Pose increases stamina.",
+        //          'img_path' : "https://www.verywellfit.com/thmb/I1bZw-lS3uLWsoz3Us9QC1A19Mg=/1500x1000/filters:fill(FFDB5D,1)/Verywell-03-3567198-Warrior2-598a10d4d963ac0011fc9d72.gif" 
+        //         }
+        // }
+
+        // pose_select.addEventListener('change',handle_pose_select)
+        // start_button.addEventListener('click',handle_start_button)
+        // stop_button.addEventListener('click', handle_stop_button)
+
+        // function handle_pose_select()
+        // {
+        //     let id  =  pose_select.options.selectedIndex
+
+        //     if (id == 0)
+        //     {
+        //         help_text_head.innerHTML = "Please Select Pose"
+        //         help_text_content.innerHTML = "Please select some pose from dropdown to start"
+        //         help_img.style.display = "initial"
+        //         help_img.src = "assets/img/yoga_logo.png"
+        //         start_button.style.display = "none"
+        //         stop_button.style.display = "none"
+        //         my_canvas.style.visibility = "hidden"
+        //     }
+        //     else if (id <= 5){
+        //         help_text_head.innerHTML = my_posedict[id-1].head
+        //         help_text_content.innerHTML = my_posedict[id-1].content
+        //         help_img.style.display = "initial"
+        //         help_img.src = my_posedict[id-1].img_path
+        //         start_button.style.display = "initial"
+        //         stop_button.style.display = "none"
+        //         my_canvas.style.visibility = "hidden"
+        //     }
+        //     else
+        //     {
+        //         alert('Something is wrong')
+        //     }
+        // }
+
+        // async function handle_start_button()
+        // {
+        //      let id =  pose_select.options.selectedIndex
+
+        //      if(id == 0)
+        //      {
+        //          alert('hacker alert, this is not possible')
+        //      }
+        //      else
+        //      {
+        //        start_button.style.display = "none"
+        //        help_img.style.display = "none"
+        //        stop_button.style.display = "initial"
+        //        help_text_content.innerHTML = `Loading ${my_posedict[id-1].head} models and setting cam`
+        //        my_canvas.style.visibility = "visible"
+        //        await start_inference(id);
+        //      }
+             
+        // }
+        
+        // function handle_stop_button_1()
+        // {
+        //         pose_select.options.selectedIndex = 0;
+        //         help_text_head.innerHTML = "Please Select Pose"
+        //         help_text_content.innerHTML = "Please select some pose from dropdown to start"
+        //         help_img.style.display = "initial"
+        //         help_img.src = "assets/img/yoga_logo.png"
+        //         start_button.style.display = "none"
+        //         stop_button.style.display = "none"
+        //         my_canvas.style.visibility = "hidden"
+
+        // }
+
+        // function start_inference(id)
+        // {
+        //     console.log(id)
+        // }
+
+    </script>
+</div>
+</body>
+
+</html>
